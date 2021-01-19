@@ -1,0 +1,32 @@
+#!/bin/bash
+
+PKG=github.com/nickwells/version.mod/version
+DATEFMT="%Y/%m/%d %H:%M:%S"
+
+if git rev-parse --git-dir > /dev/null 2>&1
+then
+    tag=$(git --no-pager tag --contains=HEAD)
+    if [[ $tag == "" ]]
+    then
+	tag="No Tag"
+    fi
+    commit=$(git rev-parse HEAD)
+    author=$(git --no-pager log -1 --format='%an')
+    date=$(git --no-pager log -1 --date="format:$DATEFMT" --format='%cd')
+else
+    tag="No Git"
+    commit="No Git"
+    author="No Git"
+    date="No Git"
+fi
+
+buildUser=$(id -unr) # --user --name --real
+buildDate=$(date "+$DATEFMT")
+
+echo -n "-X '$PKG.tag=$tag'"
+echo -n " -X '$PKG.commit=$commit'"
+echo -n " -X '$PKG.author=$author'"
+echo -n " -X '$PKG.date=$date'"
+echo -n " -X '$PKG.buildUser=$buildUser'"
+echo -n " -X '$PKG.buildDate=$buildDate'"
+echo
