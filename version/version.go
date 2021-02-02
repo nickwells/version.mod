@@ -44,12 +44,11 @@ func BuildUser() string {
 // All returns a string giving all the version details. It is a formatted
 // string with the values shown following names.
 func All() string {
-	return "Version: " + tag + "\n" +
-		"\n" +
+	return "" +
+		"      Version: " + tag + "\n" +
 		"    Commit ID: " + commit + "\n" +
 		"Commit Author: " + author + "\n" +
 		"  Commit Date: " + date + "\n" +
-		"\n" +
-		"Build Date: " + buildDate + "\n" +
-		"  Built By: " + buildUser
+		"   Build Date: " + buildDate + "\n" +
+		"     Built By: " + buildUser
 }
