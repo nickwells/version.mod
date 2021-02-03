@@ -20,7 +20,7 @@ Each of these values is a string.
 A suggested way of setting each of these values when using git on a Linux
 platform is as follows:
 
-  first set up a shell variable to hold the date format to avoid retyping
+first set up a shell variable to hold the date format to avoid retyping
 
   DATEFMT="%Y/%m/%d %H:%M:%S"
 
@@ -36,5 +36,14 @@ parameter to go build or go install.
 
 There is a shell script available (see _sh/goBuildLdflags) which will
 construct these arguments for you.
+
+If you wish to build the program without the checks that the build values
+have been set then build the program with the build tag version_no_check set
+as follows:
+
+  go build -tags version_no_check
+
+Without this build tag a program built without any version information having
+been set will panic at startup.
 */
 package version
