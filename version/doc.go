@@ -45,5 +45,12 @@ as follows:
 
 Without this build tag a program built without any version information having
 been set will panic at startup.
+
+Deprecated: this package superseded by the information in runtime/debug. It
+is error-prone, depending as it does on the need for complex build-time
+parameters to be set up. It is no longer needed as some of the features it
+offered are now provided automatically by the runtime through the
+runtime/debug.BuildInfo type. The go version command also provides access to
+the same information for binaries compiled with Go versions since go1.18
 */
 package version
