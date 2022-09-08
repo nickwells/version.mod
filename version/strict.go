@@ -1,5 +1,4 @@
 //go:build !version_no_check
-// +build !version_no_check
 
 package version
 
